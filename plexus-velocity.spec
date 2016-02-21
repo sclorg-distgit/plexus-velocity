@@ -37,7 +37,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.1.8
-Release:        16.11%{?dist}
+Release:        16.12%{?dist}
 Epoch:          0
 Summary:        Plexus Velocity Component
 License:        ASL 2.0
@@ -51,14 +51,14 @@ BuildArch:      noarch
 BuildRequires:  %{?scl_prefix_java_common}javapackages-tools
 BuildRequires:  %{?scl_prefix_java_common}ant >= 0:1.6
 BuildRequires:  %{?scl_prefix_java_common}maven-local
-BuildRequires:  maven30-maven-resources-plugin
-BuildRequires:  maven30-maven-doxia-sitetools
-BuildRequires:  maven30-ant-contrib
-BuildRequires:  maven30-plexus-classworlds >= 0:1.1
+BuildRequires:  %{?scl_prefix}maven-resources-plugin
+BuildRequires:  %{?scl_prefix}maven-doxia-sitetools
+BuildRequires:  %{?scl_prefix}ant-contrib
+BuildRequires:  %{?scl_prefix}plexus-classworlds >= 0:1.1
 BuildRequires:  %{?scl_prefix_java_common}apache-commons-collections
-BuildRequires:  maven30-plexus-containers-container-default
-BuildRequires:  maven30-plexus-utils
-BuildRequires:  maven30-velocity
+BuildRequires:  %{?scl_prefix}plexus-containers-container-default
+BuildRequires:  %{?scl_prefix}plexus-utils
+BuildRequires:  %{?scl_prefix}velocity
 
 %description
 The Plexus project seeks to create end-to-end developer tools for
@@ -76,7 +76,7 @@ Javadoc for %{pkg_name}.
 
 %prep
 %setup -q -n plexus-velocity-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cp -p %{SOURCE1} LICENSE
 for j in $(find . -name "*.jar"); do
@@ -86,13 +86,13 @@ done
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -106,6 +106,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0:1.1.8-16.12
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 0:1.1.8-16.11
 - maven33 rebuild
 
