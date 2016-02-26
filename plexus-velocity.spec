@@ -37,7 +37,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.1.8
-Release:        16.12%{?dist}
+Release:        16.13%{?dist}
 Epoch:          0
 Summary:        Plexus Velocity Component
 License:        ASL 2.0
@@ -50,7 +50,7 @@ Source1:        http://www.apache.org/licenses/LICENSE-2.0.txt
 BuildArch:      noarch
 BuildRequires:  %{?scl_prefix_java_common}javapackages-tools
 BuildRequires:  %{?scl_prefix_java_common}ant >= 0:1.6
-BuildRequires:  %{?scl_prefix_java_common}maven-local
+BuildRequires:  %{?scl_prefix}maven-local
 BuildRequires:  %{?scl_prefix}maven-resources-plugin
 BuildRequires:  %{?scl_prefix}maven-doxia-sitetools
 BuildRequires:  %{?scl_prefix}ant-contrib
@@ -106,6 +106,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 0:1.1.8-16.13
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0:1.1.8-16.12
 - maven33 rebuild #2
 
