@@ -3,7 +3,7 @@
 
 Name:           %{?scl_prefix}plexus-velocity
 Version:        1.2
-Release:        2.1%{?dist}
+Release:        2.2%{?dist}
 Summary:        Plexus Velocity Component
 License:        ASL 2.0
 URL:            https://codehaus-plexus.github.io/plexus-velocity/
@@ -49,6 +49,9 @@ cp -p %{SOURCE1} LICENSE
 %license LICENSE
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 1.2-2.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 1.2-2.1
 - Automated package import and SCL-ization
 
